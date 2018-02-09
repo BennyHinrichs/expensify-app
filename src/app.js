@@ -13,22 +13,6 @@ import getVisibleExpenses from './selectors/expenses';
 // set the store to the default from ./store/configure-store
 const store = configureStore();
 
-// add some expenses
-store.dispatch(addExpense({ description: 'Water bill', amount: 4000 }));
-store.dispatch(addExpense({ description: 'Gas bill', amount: 5000, createdAt: 100000000 }));
-store.dispatch(addExpense({ description: 'Rent', amount: 80000 }));
-
-// filter only ones with 'bill'
-//store.dispatch(setTextFilter('bill'));
-
-// setTimeout(() => {
-//     store.dispatch(setTextFilter('rent'));
-// }, 3000);
-
-// display the filtered results
-const state = store.getState();
-console.log(getVisibleExpenses(state.expenses, state.filters));
-
 const jsx = (
     <Provider store={store}>
         <AppRouter />

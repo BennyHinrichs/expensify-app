@@ -8,7 +8,7 @@ test('should properly render summary of expenses', () => {
     expect(wrapper).toMatchSnapshot();
 });
 
-test('should properly render summary of expenses', () => {
+test('should properly render 1 expense', () => {
     const wrapper = shallow(<ExpenseSummary expenses={[expenses[0]]} />);
     expect(wrapper).toMatchSnapshot();
 });

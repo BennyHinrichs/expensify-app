@@ -4,12 +4,11 @@ import selectExpenses from '../selectors/expenses';
 import selectExpensesTotal from '../selectors/expenses-total';
 
 export const ExpenseSummary = (props) => {
-    let expenseText;
     const expenseCount = props.expenses.length;
     const expensesTotal = selectExpensesTotal(props.expenses);
 
     // expenseText merely accounts for whether it should say '1 expense' or 'n expenses'
-    expenseCount === 1 ? expenseText = 'expense' : expenseText = 'expenses';
+    const expenseText = expenseCount === 1 ? 'expense' : 'expenses';
 
     return (
         <div>

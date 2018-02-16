@@ -75,7 +75,8 @@ test('should call onSubmit prop for valid form submission', () => {
     });
 });
 
-// For whatever reason, Enzyme won't recognize anything from react-dates as nodes, so these fail
+// Enzyme won't recognize anything from react-dates as nodes, so these fail
+// It might be beacuse there are different display names than SingleDatePicker etc.
 test('test should set new date on date change', () => {
     const now = moment();
     const wrapper = shallow(<ExpenseForm />);

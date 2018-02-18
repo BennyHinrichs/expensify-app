@@ -33,7 +33,7 @@ export class EditExpensePage extends React.Component {
 
     render() {
         return (
-            <div id='1'>
+            <div>
                 <div className="page-header">
                     <div className="content-container">
                         <h1 className="page-header__title">Edit Expense</h1>

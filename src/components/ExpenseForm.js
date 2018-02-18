@@ -32,7 +32,9 @@ export default class ExpenseForm extends React.Component {
 
     onAmountChange = (e) => {
         const amount = e.target.value;
-        if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) { // tested using https://regex101.com/
+        // tested using https://regex101.com/
+        // accepts a single decimal, but if you try to submit it will prompt user to modify
+        if (!amount || amount.match(/^((\d{1,}(\.\d{0,2})?)|(\.\d{1,2})?|(\.)?)$/)) {
             this.setState(() => ({ amount }));
         }
     };
@@ -52,6 +54,8 @@ export default class ExpenseForm extends React.Component {
 
         if (!this.state.description || !this.state.amount) {
             this.setState(() => ({ error: 'Please provide inputs' }));
+        } else if(this.state.amount === '.') {
+            this.setState(() => ({ error: 'Please provide valid amount' }));
         } else {
             this.setState(() => ({ error: '' }));
             this.props.onSubmit({

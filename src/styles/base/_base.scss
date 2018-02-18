@@ -1,9 +1,19 @@
+* {
+    box-sizing: border-box;
+    &:focus {
+        outline: none;
+    }
+}
+
 html {
-    font-size: 62.5%
+    font-size: 62.5%;
 }
 
 body {
+    color: $dark-gray;
     font-family: Helvetica, Arial, sans-serif;
+    font-size: $m-size;
+    line-height: 1.6;
 }
 
 button {
@@ -12,6 +22,13 @@ button {
 
 button:disabled {
     cursor: default;
+}
+
+h1 {
+    font-size: $l-size;
+    @media (min-width: $desktop-breakpoint) {
+        font-size: $xl-size;
+    }
 }
 
 .is-active {

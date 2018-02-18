@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import selectExpenses from '../selectors/expenses';
 import selectExpensesTotal from '../selectors/expenses-total';
 
@@ -11,8 +12,15 @@ export const ExpenseSummary = (props) => {
     const expenseText = expenseCount === 1 ? 'expense' : 'expenses';
 
     return (
-        <div>
-            <p>Viewing {expenseCount} {expenseText} totalling ${(expensesTotal / 100).toFixed(2)}</p>;
+        <div className="page-header">
+            <div className="content-container">
+                <h1 className="page-header__title page-header__title--summary">
+                    Viewing <span>{expenseCount}</span> {expenseText} totalling <span>${(expensesTotal / 100).toFixed(2)}</span>
+                </h1>
+                <div className="page-header__actions">
+                    <Link className="button" to="/create">Add Expense</Link>
+                </div>
+            </div>
         </div>
     );
 }

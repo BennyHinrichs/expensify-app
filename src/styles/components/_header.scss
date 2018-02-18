@@ -1,0 +1,22 @@
+.header {
+    background: $dark-blue;
+}
+
+.header__content {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    min-height: 10vh;
+    padding: $s-size 0;
+}
+
+.header__title {
+    background: url("/images/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    filter: invert(100%) saturate(8);
+    height: 0;
+    padding-top: 11%;
+    text-decoration: none;
+    width: 100%;
+}

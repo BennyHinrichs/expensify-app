@@ -1,9 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should correctly render LoginPage 1`] = `
-<div>
-  <button>
-    Login
-  </button>
+<div
+  className="box-layout"
+>
+  <div
+    className="box-layout__buffer"
+  >
+    <div
+      className="box-layout__box"
+    >
+      <div
+        className="show-for-mobile"
+      >
+        <img
+          className="box-layout__logo box-layout__logo--small"
+          src="/images/logo.png"
+        />
+        <p
+          className="form__error login-font"
+        >
+          Your wallet and worries all in one place
+        </p>
+      </div>
+      <div
+        className="show-for-large"
+      >
+        <img
+          className="box-layout__logo box-layout__logo--large"
+          src="/images/logoSubtitle.png"
+        />
+      </div>
+      <button
+        className="button"
+      >
+        Login with Google
+      </button>
+    </div>
+  </div>
 </div>
 `;

@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 
 export default ({ id, description, amount, createdAt }) => (
-    <div>
-        <Link to={`/edit/${id}`}>
-            <h3>{description}</h3>
-        </Link>
-        <p>${(amount / 100).toFixed(2)}</p>
-        <p>{moment(createdAt).format('D MMM YYYY')}</p>
-        
-    </div>
+    <Link className="list-item" to={`/edit/${id}`}>
+        <div className="">
+            <h3 className="list-item__title">{description}</h3>
+            <span className="list-item__sub-title">{moment(createdAt).format('D MMM YYYY')}</span>
+        </div>       
+        <h3 className="list-item__data">${(amount / 100).toFixed(2)}</h3>
+    </Link>
 );
 
 // This is how you do it without destructuring

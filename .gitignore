@@ -2,3 +2,5 @@ node_modules/
 public/dist/
 .env.test
 .env.development
+public/images/logo.xcf
+public/images/faviconNoAlpha.png

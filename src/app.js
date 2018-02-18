@@ -9,6 +9,7 @@ import configureStore from './store/configure-store';
 import { startSetExpenses } from './actions/expenses';
 import { login, logout } from './actions/auth';
 import { firebase } from './firebase/firebase';
+import LoadingPage from './components/LoadingPage';
 
 // set the store to the default from ./store/configure-store
 const store = configureStore();
@@ -28,7 +29,7 @@ const renderApp = () => {
     };
 };
 // a glamorous loading message
-ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 // redirect user based off whether they log in or out
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {

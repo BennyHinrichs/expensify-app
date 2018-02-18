@@ -1,44 +1,90 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpenseList with empty message 1`] = `
-<div>
-  <h1>
-    Expense List
-  </h1>
-  <p>
-    No expenses logged.
-  </p>
+<div
+  className="content-container"
+>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-for-mobile"
+    >
+      Expenses
+    </div>
+    <div
+      className="show-for-large"
+    >
+      Expense
+    </div>
+    <div
+      className="show-for-large"
+    >
+      Amount
+    </div>
+  </div>
+  <div
+    className="list-body"
+  >
+    <span
+      className="list-item list-item--message"
+    >
+      No expenses logged.
+    </span>
+  </div>
 </div>
 `;
 
 exports[`should render ExpenseList with expenses 1`] = `
-<div>
-  <h1>
-    Expense List
-  </h1>
-  <Component
-    amount={4000}
-    createdAt={0}
-    description="Food"
-    id="1"
-    key="1"
-    note=""
-  />
-  <Component
-    amount={50000}
-    createdAt={-345600000}
-    description="Rent"
-    id="2"
-    key="2"
-    note=""
-  />
-  <Component
-    amount={6500}
-    createdAt={345600000}
-    description="Credit Card"
-    id="3"
-    key="3"
-    note=""
-  />
+<div
+  className="content-container"
+>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-for-mobile"
+    >
+      Expenses
+    </div>
+    <div
+      className="show-for-large"
+    >
+      Expense
+    </div>
+    <div
+      className="show-for-large"
+    >
+      Amount
+    </div>
+  </div>
+  <div
+    className="list-body"
+  >
+    <Component
+      amount={4000}
+      createdAt={0}
+      description="Food"
+      id="1"
+      key="1"
+      note=""
+    />
+    <Component
+      amount={50000}
+      createdAt={-345600000}
+      description="Rent"
+      id="2"
+      key="2"
+      note=""
+    />
+    <Component
+      amount={6500}
+      createdAt={345600000}
+      description="Credit Card"
+      id="3"
+      key="3"
+      note=""
+    />
+  </div>
 </div>
 `;

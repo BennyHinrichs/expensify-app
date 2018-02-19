@@ -1,9 +1,10 @@
 .button {
+    align-items: center;
     background-color: $dark-blue;
     border: none;
     border-radius: 3px;
     color: white;
-    display: inline-block;
+    display: inline;
     font-size: $font-size-large;
     font-weight: 300;
     line-height: 1;
@@ -12,16 +13,34 @@
 }
 
 // I'm very conflicted about this class. It might look better switching to the same font as
-// the logo text once you're on a big screen. Throw button--login onto the className for
+// the logo text once you're on a big screen. Throw button--login-text onto the className for
 // the login button in LoginPage.js to check it out.
-.button--login {
+.button--login-text {
     @media (min-width: $desktop-breakpoint) {
         font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     }
 }
 
+.button--login {
+    display: flex;
+    margin: auto;
+}
+
+.button--login__icon {
+    height: 20px;
+    margin-right: $m-size;
+    width: auto;
+}
+
+.button--login__text {
+    margin: 2px $m-size 0 0;
+}
+
 .button--logout {
     background: none;
+    &:hover {
+        color: $yellow;
+    }
 }
 
 .button--secondary {
@@ -31,7 +50,7 @@
 
 .button--secondary__message {
     margin: 0 0 0 $s-size;
-    transition: color .4s ease 2.5s;
+    transition: color .4s ease 2.6s;
     @media (max-width: $xs-screen-size) {
         display: block;
         margin: $s-size 0;

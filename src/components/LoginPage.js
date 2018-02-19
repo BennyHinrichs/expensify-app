@@ -13,7 +13,10 @@ export const LoginPage = ({ startLogin }) => (
                 <div className="show-for-large">
                     <img src="/images/logoSubtitle.png" className="box-layout__logo box-layout__logo--large" />
                 </div>
-                <button className="button" onClick={startLogin}>Login with Google</button>
+                <button className="button button--login" onClick={startLogin}>
+                    <img src="/images/googleIcon.png" className="button--login__icon" />
+                    <span className="button--login__text">Login with Google</span>
+                </button>
             </div>
         </div>
     </div>

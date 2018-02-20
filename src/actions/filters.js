@@ -25,3 +25,8 @@ export const setEndDate = (endDate) => ({
     type: 'SET_END_DATE',
     endDate
 });
+
+export const setGraphToggle = (graphToggle) => ({
+    type: 'SET_GRAPH_TOGGLE',
+    graphToggle
+});

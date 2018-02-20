@@ -2,11 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
-import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate } from '../actions/filters';
+import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate, setGraphToggle } from '../actions/filters';
 
 export class ExpenseListFilters extends React.Component {
     state = {
         calendarFocused: null
+    };
+
+    onClick = () => {
+        this.props.setGraphToggle(this.props.filters.graphToggle);
     };
 
     onDatesChange = ({ startDate, endDate }) => {
@@ -55,19 +59,28 @@ export class ExpenseListFilters extends React.Component {
                         </select>
                     </div>
                     <div className="input-group__item">
-                    <DateRangePicker 
-                        startDate={this.props.filters.startDate}
-                        startDateId='startDate'
-                        endDate={this.props.filters.endDate}
-                        endDateId='endDate'
-                        onDatesChange={this.onDatesChange}
-                        focusedInput={this.state.calendarFocused}
-                        onFocusChange={this.onFocusChange}
-                        numberOfMonths={1}
-                        isOutsideRange={() => false}
-                        showClearDates={true}
-                    />
+                        <DateRangePicker 
+                            startDate={this.props.filters.startDate}
+                            startDateId='startDate'
+                            endDate={this.props.filters.endDate}
+                            endDateId='endDate'
+                            onDatesChange={this.onDatesChange}
+                            focusedInput={this.state.calendarFocused}
+                            onFocusChange={this.onFocusChange}
+                            numberOfMonths={1}
+                            isOutsideRange={() => false}
+                            showClearDates={true}
+                        />
                     </div>
+                    <div className="input-group__item">
+                        <button 
+                            className="button" 
+                            onClick={this.onClick}
+                        >{!this.props.filters.graphToggle ?
+                            <span>Show Graph</span> : <span>Show List</span>
+                        }
+                        </button>
+                    </div> 
                 </div>
             </div>
         );
@@ -82,6 +95,7 @@ const mapDispatchToProps = (dispatch) => ({
     sortByAmount: () => dispatch(sortByAmount()),
     setStartDate: (startDate) => dispatch(setStartDate(startDate)),
     setEndDate: (endDate) => dispatch(setEndDate(endDate)),
+    setGraphToggle: (graphToggle) => dispatch(setGraphToggle(graphToggle))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ExpenseListFilters);

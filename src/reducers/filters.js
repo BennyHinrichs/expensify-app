@@ -5,7 +5,8 @@ const filtersReducerDefaultState = {
     text: '',
     sortBy: 'date',
     startDate: moment().startOf('month'),
-    endDate: moment().endOf('month')
+    endDate: moment().endOf('month'),
+    graphToggle: false
 };
 
 export default (state = filtersReducerDefaultState, action) => {
@@ -36,6 +37,11 @@ export default (state = filtersReducerDefaultState, action) => {
             return {
                 ...state,
                 endDate: action.endDate
+            };
+        case 'SET_GRAPH_TOGGLE':
+            return {
+                ...state,
+                graphToggle: !state.graphToggle
             };
     }
 };

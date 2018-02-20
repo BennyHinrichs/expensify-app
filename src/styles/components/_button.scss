@@ -38,6 +38,7 @@
 
 .button--logout {
     background: none;
+    transition: color .2s ease;
     &:hover {
         color: $yellow;
     }

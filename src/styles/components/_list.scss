@@ -14,6 +14,10 @@
     }
 }
 
+.list-body__graph {
+    margin-bottom: $l-size;
+}
+
 .list-item {
     border: 1px solid darken($off-white, 7%);
     border-top: none;
@@ -42,6 +46,15 @@
     padding: $m-size;
     &:hover {
         background: none;
+    }
+}
+
+.list-item--graph-message {
+    @extend .list-item--message;
+    background: $off-white;
+    border-top: 1px solid darken($off-white, 7%);
+    &:hover {
+        background: $off-white;
     }
 }
 

@@ -1,19 +1,21 @@
 .page-header {
     background: $off-white;
-    margin-bottom: $m-size;
+    margin: 0 0 $m-size;
     padding: $m-size 0;
 }
 
 .page-header__actions {
-    margin-top: $s-size;
+    margin: $s-size 0 $s-size 0;
     text-align: center;
 }
 
 .page-header__title {
     font-weight: 200;
-    margin-bottom: -1rem;
     span {
         font-weight: 700;
+    }
+    @media (min-width: $desktop-breakpoint) {
+        margin-bottom: -.5rem;
     }
 }
 

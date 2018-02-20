@@ -7,6 +7,7 @@ export const Header = ({ startLogout }) => (
     <header className="header">
         <div className="content-container">
             <div className="header__content">
+            {/* insert conditional to have link deactivated if current path is /dashboard */}
                 <Link className="header__title" to="/dashboard"></Link>
                 <button className="button button--logout" onClick={startLogout}>Logout</button>
             </div>

@@ -1,7 +1,7 @@
 .input-group {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin-bottom: $m-size;
 
     @media (min-width: $desktop-breakpoint) {
@@ -11,10 +11,19 @@
     }
 }
 
+.input-group__container {
+    @extend .input-group;
+    margin: 0;
+}
+
 .input-group__item {
     margin-bottom: $s-size;
 
     @media (min-width: $desktop-breakpoint) {
         margin: 0 $s-size 0 0;
     }
+}
+
+.input-group__item--button {
+    margin: 0;
 }

@@ -80,6 +80,7 @@ export class ExpenseGraph extends React.Component {
             displayColors: false,
             callbacks: { 
                 title: (tooltipItem, data) => {
+                    // if sortBy is 'amount', reverse title array
                     const title = this.isSortByDate() ? 
                         arr[1][tooltipItem[0].index] :
                         arr[1][arr[1].length - 1 - tooltipItem[0].index]
@@ -92,7 +93,7 @@ export class ExpenseGraph extends React.Component {
                 }
             }
         }
-        // if sortBy is 'amount', set labels and ?reverse expense array?
+        // if sortBy is 'amount', set labels and reverse expense array
         let labels = {};
         if (!this.isSortByDate()) {
             let labelArray = [];

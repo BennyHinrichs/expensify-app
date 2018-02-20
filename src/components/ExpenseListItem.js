@@ -2,12 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 
-export default ({ id, description, amount, createdAt }) => (
+export default ({ id, description, amount, createdAt, note }) => (
     <Link className="list-item" to={`/edit/${id}`}>
-        <div className="">
-            <h3 className="list-item__title">{description}</h3>
-            <span className="list-item__sub-title">{moment(createdAt).format('D MMM YYYY')}</span>
-        </div>       
+        <div className="list-item__container">
+            <div className="list-item__left">
+                <h3 className="list-item__title">{description}</h3>
+                <span className="list-item__sub-title">{moment(createdAt).format('D MMM YYYY')}</span>
+            </div>
+            <span className="list-item__note">{note}</span>    
+        </div>
         <h3 className="list-item__data">${(amount / 100).toFixed(2)}</h3>
     </Link>
 );

@@ -30,12 +30,46 @@
     &:hover {
         background: $off-white;
     }
+    &:hover .list-item__note {
+        opacity: .8;
+    }
 
     @media (min-width: $desktop-breakpoint) {
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
         padding: $m-size;
+    }
+}
+
+.list-item__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    // min-height: 122px;
+    overflow: hidden;
+    @media (min-width: $desktop-breakpoint) {
+        align-items: center;
+        height: auto;
+    }
+}
+
+.list-item__note {
+    align-self: center;
+    color: $dark-blue;
+    border-left: 1px;
+    margin: 0 $m-size 0 0;
+    max-height: 100px;
+    max-width: 50vw;
+    opacity: 0;
+    overflow: hidden;
+    text-align: end;
+    text-overflow: ellipsis;
+    transition: opacity .3s;
+    white-space: nowrap;
+    @media (min-width: $desktop-breakpoint) {
+        margin: 0 $s-size 0 $xl-size;
+        text-align: start;
     }
 }
 
@@ -58,8 +92,15 @@
     }
 }
 
+.list-item__left {
+    max-width: 50vw;
+}    
+
 .list-item__title {
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     word-break: break-all;
 }
 
@@ -69,7 +110,8 @@
 }
 
 .list-item__data {
-    margin: $s-size 0 0 0;
+    // margin: -29px 0 0 0;
+    z-index: 2;
     @media (min-width: $desktop-breakpoint) {
         margin: 0;
         padding-left: $s-size;

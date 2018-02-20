@@ -93,7 +93,10 @@
 }
 
 .list-item__left {
-    max-width: 50vw;
+    max-width: 60vw;
+    @media (min-width: $desktop-breakpoint) {
+        max-width: 30vw;
+    }
 }    
 
 .list-item__title {

@@ -7,6 +7,8 @@ import moment from 'moment';
 /* ****************** */
 /*  1. Refresh data on filter change
     2. Set graph limits to date range?
+    3. Hyperlink graph points? https://stackoverflow.com/questions/45980436/chart-js-link-to-other-page-when-click-on-specific-section-in-chart
+    
 /* ****************** */
 
 const data = {
@@ -51,9 +53,20 @@ const options  = {
         display: false,
     },
     scales: {
+        xAxes: [{
+            ticks: {
+                autoSkip: false
+            }
+        }],
         yAxes: amountAxis
     }
 };
+
+const truncator = (str) => {
+    const length = 35;
+    str = str.length > length ? str.substring(0, length) + '...' : str;
+    return str;
+}
 
 export class ExpenseGraph extends React.Component {
 
@@ -67,7 +80,7 @@ export class ExpenseGraph extends React.Component {
         let title = [];
         for (const i in expenses) {
                 xy.push({x: expenses[i].createdAt, y: (expenses[i].amount / 100).toFixed(2)});
-                title.push(expenses[i].description);
+                title.push(truncator(expenses[i].description));
             }
         return [xy, title];
     }

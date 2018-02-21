@@ -9,9 +9,6 @@
 
 .list-body {
     margin-bottom: $m-size;
-    // @media (min-width: $desktop-breakpoint) {
-    //     margin-bottom: $l-size;
-    // }
 }
 
 .list-body__graph {
@@ -150,7 +147,7 @@
     }
 }
 .additions-list__sub__sub {
-    font-weight: 500;
+    font-weight: 400;
     list-style: none;
     margin-left: (-$l-size);
     padding-right: $l-size;

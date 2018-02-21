@@ -64,7 +64,7 @@ const options  = {
 };
 
 const truncator = (str) => {
-    const length = 35;
+    const length = 25;
     str = str.length > length ? str.substring(0, length) + '...' : str;
     return str;
 }

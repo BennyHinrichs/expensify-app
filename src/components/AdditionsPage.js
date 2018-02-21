@@ -35,12 +35,7 @@ class AdditionsPage extends React.Component {
                                     <ul className="additions-list__sub__sub">
                                         <li className="additions-list-item">Updated color to match scheme.</li>
                                         <li className="additions-list-item">Added the Google icon.</li>
-                                    </ul>
-                                <li>Browser Detection</li>
-                                    <ul className="additions-list__sub__sub">
-                                        <li className="additions-list-item">This is still on my to-do list. Google OAuth doesn't work on iOS native browsers, (e.g. FB Messenger or Snapchat), so I have to detect and pop-up a message.</li>
-                                        <li className="additions-list-item">I don't have an iPhone (the main culprit; Android works), which makes it hard to test.</li>
-                                    </ul>
+                                    </ul>          
                             </ul>
                         <li className="additions-list-section">Dashboard</li>
                             <ul className="additions-list__sub">
@@ -84,10 +79,6 @@ class AdditionsPage extends React.Component {
                                         <li className="additions-list-item">Next is the case with one point. This took an unngrokkable amount of time to wrangle down. The graph was only showing a very unattractive point on the y-axis. I needed it centered. What I had to do was add null points a day before and after the single point to make it look nice.</li>
                                         <li className="additions-list-item">But that's not the end. You see, there's also the case of multiple points that have the same values, thus apprearing to be a single point. Now we have to compare and see if the points are the same, then add time-spaced null values to the ends.</li>
                                     </ul>
-                                <li>TODO</li>
-                                    <ul className="additions-list__sub__sub">
-                                        <li className="additions-list-item">I might just say I'm done now and move onto another project, but one potential tweak that keeps calling my name is to add links to the graph points that take you to the edit page.</li>
-                                    </ul>
                             </ul>
                         <li className="additions-list-section">Expense Form</li>
                             <ul className="additions-list__sub">
@@ -101,6 +92,24 @@ class AdditionsPage extends React.Component {
                                     <ul className="additions-list__sub__sub">
                                         <li className="additions-list-item">There is now a confirmation message that pops up when you press delete.</li>
                                         <li className="additions-list-item">After three seconds, the message fades away and you have to press delete again (twice) to remove the expense. Want to prevent accidents!</li>
+                                    </ul>
+                            </ul>
+                            <li className="additions-list-section">TODO</li>
+                            <ul className="additions-list__sub">
+                                <li>Graph Links</li>
+                                    <ul className="additions-list__sub__sub">
+                                        <li className="additions-list-item">I might just say I'm done now and move onto another project, but one potential tweak that keeps calling my name is to add links to the graph points that take you to the edit page.</li>
+                                        <li className="additions-list-item">Scope creep can be a problem with any project. I'm afraid that if I try and fulfill this TODO list, I'll have another one by the time I'm done.</li>
+                                    </ul>
+                                <li>Browser Detection</li>
+                                <ul className="additions-list__sub__sub">
+                                    <li className="additions-list-item">Google OAuth doesn't work on iOS native browsers, (e.g. FB Messenger or Snapchat), so I have to detect and pop-up a message.</li>
+                                    <li className="additions-list-item">I don't have an iPhone (the main culprit; Android works), which makes it hard to test.</li>
+                                </ul>
+                                <li>Estimator</li>
+                                    <ul className="additions-list__sub__sub">
+                                        <li className="additions-list-item">This is an idea for an additional component. It takes the data that you've filtered and estimates your dollar value expenditures for the next {'{week | month | year}'}.</li>
+                                        <li className="additions-list-item">I'd have to figure out exactly what supervised machine learning technique would be best. Maybe something like SVM?</li>
                                     </ul>
                             </ul>
                     </ul>

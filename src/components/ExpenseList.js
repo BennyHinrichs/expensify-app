@@ -8,7 +8,8 @@ export class ExpenseList extends React.Component {
 
     // There's probably a better way to keep it from scrolling to the top when you load the graph,
     // but this works for now. Maybe get the position of the updated component and scroll to its top.
-    componentWillUpdate() {
+    componentWillUpdate(props) {
+        console.log(props);
         const base = document.documentElement;
         const prev = base.scrollTop;
         setTimeout(() => {

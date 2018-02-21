@@ -16,6 +16,11 @@ body {
     line-height: 1.6;
 }
 
+a {
+    color: $yellow;
+    text-decoration: none;
+}
+
 button {
     cursor: pointer;
 }

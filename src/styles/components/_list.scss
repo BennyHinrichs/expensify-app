@@ -9,9 +9,9 @@
 
 .list-body {
     margin-bottom: $m-size;
-    @media (min-width: $desktop-breakpoint) {
-        margin-bottom: $l-size;
-    }
+    // @media (min-width: $desktop-breakpoint) {
+    //     margin-bottom: $l-size;
+    // }
 }
 
 .list-body__graph {
@@ -132,6 +132,7 @@
     border-right: none;
     color: white;
     font-size: $l-size;
+    font-weight: 200;
     margin-top: $m-size;
     padding-left: $l-size; 
     &:hover {

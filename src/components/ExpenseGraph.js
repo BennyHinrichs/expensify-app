@@ -122,7 +122,7 @@ export class ExpenseGraph extends React.Component {
             const len = array.length;
             let isSame = false;
             for (let i = 1; i < len; i++) {
-                // I put the arbitrary value of a 6 hour difference here.
+                // I put the arbitrary value of a 12 hour difference here.
                 if (array[0].x - array[i].x >= 43200000) {
                     isSame = false;
                     break;

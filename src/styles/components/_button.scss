@@ -10,6 +10,9 @@
     line-height: 1;
     padding: $s-size;
     text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 // I'm very conflicted about this class. It might look better switching to the same font as

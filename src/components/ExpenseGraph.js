@@ -5,9 +5,8 @@ import moment from 'moment';
 
 /* *******TODO******* */
 /* ****************** */
-/*  1. Refresh data on filter change
-    2. Set graph limits to date range?
-    3. Hyperlink graph points? https://stackoverflow.com/questions/45980436/chart-js-link-to-other-page-when-click-on-specific-section-in-chart
+/*  1. Animate on filter change?
+    2. Hyperlink graph points? https://stackoverflow.com/questions/45980436/chart-js-link-to-other-page-when-click-on-specific-section-in-chart
     
 /* ****************** */
 
@@ -33,17 +32,19 @@ const data = {
 
 const timeAxis = [{
     type: 'time',
+    distribution: 'linear',
     time: {
         displayFormats: {
             day: 'D MMM YY'
-        }
+        },
+        unit: 'day'
     }
 }]
 
 const amountAxis = [{
     ticks: {
         callback: (value, index, values) => {
-            return '$' + value;
+            return '$' + value.toFixed(2);
         }
     }
 }]
@@ -55,7 +56,7 @@ const options  = {
     scales: {
         xAxes: [{
             ticks: {
-                autoSkip: false
+                autoSkip: false,
             }
         }],
         yAxes: amountAxis
@@ -116,6 +117,25 @@ export class ExpenseGraph extends React.Component {
         }
         // if sortBy is 'date', set axis scales
         const scales = this.isSortByDate() && { scales: { xAxes: timeAxis, yAxes: amountAxis }};
+        // apply padding for single value datasets/overlapping datasets that appear as a single value
+        const whether = (array) => {
+            const len = array.length;
+            let isSame = false;
+            for (let i = 1; i < len; i++) {
+                if (array[0].x - array[i].x !== 0) {
+                    isSame = false;
+                    break;
+                } else {
+                    isSame = true;
+                }
+            }
+            return isSame;
+        }
+        if (arr[0].length === 1 || whether(arr[0])) {
+            const arrCopy = Object.assign({}, arr);
+            arr[0].unshift({x: arrCopy[0][0].x - 86400000, y: null});
+            arr[0].push({x: arrCopy[0][0].x + 2 * 86400000, y: null});
+        }
         // combine all the data into the very specific chartjs data structure
         const dataCombine = {...labels, datasets: [{...data.datasets[0], data: arr[0]}]};
         return [
@@ -124,12 +144,9 @@ export class ExpenseGraph extends React.Component {
         ];
     }
 
-    // get data and options in two handy variables
-    expenses = this.expenseParser(this.props)[0];
-    options = this.expenseParser(this.props)[1];
-
     render() {
-        const Chart = <Line data={ this.expenses } options={this.options } />
+        const parsedData = this.expenseParser(this.props);
+        const Chart = <Line data={ parsedData[0] } options={parsedData[1] } redraw />;
         return (
             <div>
                 {(() => {

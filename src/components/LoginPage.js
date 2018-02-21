@@ -2,6 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { startLogin } from '../actions/auth';
 
+/* *******TODO******* */
+/*  1. Notify user to open in browser when using a native app: 
+/*      document.addEventListener("deviceready", onDeviceReady, false);   
+/* ****************** */
+
 export const LoginPage = ({ startLogin }) => (
     <div className="box-layout">
         <div className="box-layout__buffer">

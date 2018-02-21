@@ -120,3 +120,53 @@
         padding-left: $s-size;
     }
 }
+
+.additions-list {
+    list-style-type: none;
+    padding: 0px;
+}
+
+.additions-list-section {
+    @extend .list-item;
+    background: $dark-blue;
+    border-right: none;
+    color: white;
+    font-size: $l-size;
+    margin-top: $m-size;
+    padding-left: $l-size; 
+    &:hover {
+        background: $dark-blue;
+    }
+}
+
+.additions-list__sub {
+    @extend .additions-list;
+    font-size: $m-size;
+    font-weight: 700;
+    padding: 1rem 0 0 $m-size;
+    @media (min-width: $desktop-breakpoint) {
+        padding-left: $l-size;
+    }
+}
+.additions-list__sub__sub {
+    font-weight: 500;
+    list-style: none;
+    margin-left: (-$l-size);
+    padding-right: $l-size;
+}
+
+.additions-list-item {
+    padding-left: 1em;
+    text-indent: -.5em;
+}
+
+.additions-list-item:before {
+    content: '\27A4';
+    color: $yellow;
+    font-family: auto;
+    margin-right: 4px;
+}
+
+.additions-list-item--code {
+    font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+}

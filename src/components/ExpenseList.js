@@ -20,7 +20,6 @@ export class ExpenseList extends React.Component {
         const props = this.props;
         return (
             <div className="content-container" id="expense-list-container">
-            {/* <ExpenseGraph {...props} className="list-body__graph" /> */}
                 {props.filters.graphToggle ?
                     <div className="list-body__graph">
                         <ExpenseGraph {...props} />

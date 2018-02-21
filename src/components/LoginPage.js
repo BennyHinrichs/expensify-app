@@ -4,7 +4,8 @@ import { startLogin } from '../actions/auth';
 
 /* *******TODO******* */
 /*  1. Notify user to open in browser when using a native app: 
-/*      document.addEventListener("deviceready", onDeviceReady, false);   
+/*      document.addEventListener("deviceready", onDeviceReady, false);
+        https://stackoverflow.com/questions/28940373/javascript-detect-mobile-embedded-browsers-captive-portal/30035311#30035311
 /* ****************** */
 
 export const LoginPage = ({ startLogin }) => (

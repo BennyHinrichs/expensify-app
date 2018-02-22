@@ -15,7 +15,7 @@ class AdditionsPage extends React.Component {
                     <span>
                         I learned a massive amount from this course, and I couldn't stop myself from continuing on. Here's a (hopefully comprehensive) list of the changes I've made to the project.
                         You can see the original app from Andrew Meade and his insanely good React course <a href="http://expensify.mead.io/">here</a>.
-                        If you haven't already, try adding some data points and checking out the features (graphing, editing, filtering).
+                        If you haven't already, try adding some data points and checking out the features (graphing, editing, filtering). Here's an <a href="https://imgur.com/a/fPjlh">Imgur album</a> of some of the main changes.
                     </span>
                     <ul className="additions-list">
                         <li className="additions-list-section">Login Page</li>

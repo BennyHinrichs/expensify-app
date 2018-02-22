@@ -4,4 +4,4 @@ The core of this app was developed from [Andrew Meade's amazing React course](ht
 
 ### My version is accessible [here](https://hinrichs-expensify.herokuapp.com/).
 
-Once you log into my app, you can go to the [Additions page](https://hinrichs-expensify.herokuapp.com/additions) (accessible by clicking "About" at the bottom of the site) where I've cataloged all the modificatiosn and updates I've made to the project. Add some expenses in and check out all the features.
+Once you log into my app, you can go to the [Additions page](https://hinrichs-expensify.herokuapp.com/additions) (accessible by clicking "About" at the bottom of the site) where I've cataloged all the modificatiosn and updates I've made to the project. Add some expenses in and check out all the features. Here's [an Imgur album](https://imgur.com/a/fPjlh) of some of the main changes.

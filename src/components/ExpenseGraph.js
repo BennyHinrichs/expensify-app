@@ -90,38 +90,22 @@ export class ExpenseGraph extends React.Component {
     // chartjs datastructe requirements. Handles whether the user has sorted by date or amount.
     expenseParser = (props) => {
         const arr = this.strip(props.expenses);
-        const tooltips = {
-            displayColors: false,
-            callbacks: { 
-                title: (tooltipItem, data) => {
-                    // if sortBy is 'amount', reverse title array
-                    const title = this.isSortByDate() ? 
-                        arr[1][tooltipItem[0].index] :
-                        arr[1][arr[1].length - 1 - tooltipItem[0].index]
-                    return title;
-                },
-                label: (tooltipItem, data) => {
-                    const createdAt = moment(arr[0][tooltipItem.index].x).format('D MMM YY')
-                    const amount = arr[0][tooltipItem.index].y
-                    return '$' + amount + ' - ' + createdAt;
-                }
-            }
-        }
+        
         // if sortBy is 'amount', set labels and reverse expense array
-        let labels = {};
+        let labels = {}, labelArray = [];
+        for (const i in arr[1]) labelArray.push(arr[1][i])
         if (!this.isSortByDate()) {
-            let labelArray = [];
-            for (const i in arr[1]) labelArray.push(arr[1][i]);
             labels = { labels: labelArray.reverse() };
             arr[0] = arr[0].reverse();
         }
+
         // if sortBy is 'date', set axis scales
         const scales = this.isSortByDate() && { scales: { xAxes: timeAxis, yAxes: amountAxis }};
+
         // apply padding for single value datasets/overlapping datasets that appear as a single value
         const whether = (array) => {
-            const len = array.length;
             let isSame = false;
-            for (let i = 1; i < len; i++) {
+            for (let i = 1; i < array.length; i++) {
                 // I put the arbitrary value of a 12 hour difference here.
                 if (array[0].x - array[i].x >= 43200000) {
                     isSame = false;
@@ -132,16 +116,47 @@ export class ExpenseGraph extends React.Component {
             }
             return isSame;
         }
-        if (arr[0].length === 1 || whether(arr[0])) {
+        const padArr = () => {
             const arrCopy = Object.assign({}, arr);
             arr[0].unshift({x: arrCopy[0][0].x - 86400000, y: null});
             arr[0].push({x: arrCopy[0][0].x + 2 * 86400000, y: null});
         }
+        const paddingConditon = (arr[0].length === 1 || whether(arr[0]));
+        if (paddingConditon) {
+            if (this.isSortByDate()) {
+                padArr();
+            } else if (!whether(arr[0])) {
+                padArr();
+                labelArray.unshift('');
+                labelArray.push('');
+                labels = { labels: labelArray };
+            }
+        }
+
+        const tooltips = {
+            displayColors: false,
+            callbacks: { 
+                title: (tooltipItem, data) => {
+                    // if sortBy is 'amount', reverse title array
+                    const title = this.isSortByDate() ? 
+                        arr[1][tooltipItem[0].index - Number(paddingConditon)] :
+                        arr[1][arr[1].length - 1 - tooltipItem[0].index + Number(arr[1].length === 1)]
+                        // note the logic here is a duplicate of the above if statement: padding condition
+                        // is applied for sort by date and the array length condition is applied to sort by amount
+                    return title;
+                },
+                label: (tooltipItem, data) => {
+                    const createdAt = moment(arr[0][tooltipItem.index].x).format('D MMM YY')
+                    const amount = arr[0][tooltipItem.index].y
+                    return '$' + amount + ' - ' + createdAt;
+                }
+            }
+        }
         // combine all the data into the very specific chartjs data structure
-        const dataCombine = {...labels, datasets: [{...data.datasets[0], data: arr[0]}]};
+        const dataCombine = { ...labels, datasets: [{ ...data.datasets[0], data: arr[0] }] };
         return [
             dataCombine, 
-            {...options, ...scales, tooltips: tooltips}
+            { ...options, ...scales, tooltips: tooltips }
         ];
     }
 

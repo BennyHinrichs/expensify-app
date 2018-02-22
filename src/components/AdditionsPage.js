@@ -11,6 +11,7 @@ class AdditionsPage extends React.Component {
                     <h1 className="content-container page-header__title">Additions</h1>
                 </div>
                 <div className="content-container">
+                    <p>See the source code: <a href="https://github.com/BennyHinrichs/expensify-app">GitHub repo</a></p>
                     <span>
                         I learned a massive amount from this course, and I couldn't stop myself from continuing on. Here's a (hopefully comprehensive) list of the changes I've made to the project.
                         You can see the original app from Andrew Meade and his insanely good React course <a href="http://expensify.mead.io/">here</a>.
@@ -77,7 +78,8 @@ class AdditionsPage extends React.Component {
                                     <ul className="additions-list__sub__sub">
                                         <li className="additions-list-item">First we have the case of no data. I decided to render no graph in this case and to just throw up a message instead.</li>
                                         <li className="additions-list-item">Next is the case with one point. This took an unngrokkable amount of time to wrangle down. The graph was only showing a very unattractive point on the y-axis. I needed it centered. What I had to do was add null points a day before and after the single point to make it look nice.</li>
-                                        <li className="additions-list-item">But that's not the end. You see, there's also the case of multiple points that have the same values, thus apprearing to be a single point. Now we have to compare and see if the points are the same, then add time-spaced null values to the ends.</li>
+                                        <li className="additions-list-item">But that's not the end. You see, there's also the case of multiple points that have the same values, thus apprearing to be a single point. Now we have to compare and see if the points are the same, then add time-spaced null values to the ends. I put a tolerance of 12 hours on it.</li>
+                                        <li className="additions-list-item">Once I got all the padding worked out, of course the labels and tooltips were all out of wack, but only for specific cases. I went in and tracked down the issues with each case, so the graph should now handle any (not gigantic) set of data.</li>
                                     </ul>
                             </ul>
                         <li className="additions-list-section">Expense Form</li>
@@ -101,12 +103,17 @@ class AdditionsPage extends React.Component {
                                         <li className="additions-list-item">I might just say I'm done now and move onto another project, but one potential tweak that keeps calling my name is to add links to the graph points that take you to the edit page.</li>
                                         <li className="additions-list-item">Scope creep can be a problem with any project. I'm afraid that if I try and fulfill this TODO list, I'll have another one by the time I'm done.</li>
                                     </ul>
+                                <li>Categories and Pie Chart</li>
+                                    <ul className="additions-list__sub__sub">
+                                        <li className="additions-list-item">If I put in categories that you can tag expenses in, then I could add in a pie chart feature that shows how much each category consumes.</li>
+                                        <li className="additions-list-item">If I implemented this and the graph links, I'd have to deactivate graph links for this. That or give each section the same function as the "Show List" button, and have it set the filter as well.</li>
+                                    </ul>
                                 <li>Browser Detection</li>
                                 <ul className="additions-list__sub__sub">
                                     <li className="additions-list-item">Google OAuth doesn't work on iOS native browsers, (e.g. FB Messenger or Snapchat), so I have to detect and pop-up a message.</li>
                                     <li className="additions-list-item">I don't have an iPhone (the main culprit; Android works), which makes it hard to test.</li>
                                 </ul>
-                                <li>Estimator</li>
+                                <li>Forecaster</li>
                                     <ul className="additions-list__sub__sub">
                                         <li className="additions-list-item">This is an idea for an additional component. It takes the data that you've filtered and estimates your dollar value expenditures for the next {'{week | month | year}'}.</li>
                                         <li className="additions-list-item">I'd have to figure out exactly what supervised machine learning technique would be best. Maybe something like SVM?</li>

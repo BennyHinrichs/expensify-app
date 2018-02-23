@@ -110,12 +110,14 @@ class AdditionsPage extends React.Component {
                                     </ul>
                                 <li>Browser Detection</li>
                                 <ul className="additions-list__sub__sub">
-                                    <li className="additions-list-item">Google OAuth doesn't work on iOS native browsers, (e.g. FB Messenger or Snapchat), so I have to detect and pop-up a message.</li>
+                                    <li className="additions-list-item">Google OAuth doesn't work on iOS native browsers, (e.g. FB Messenger or Snapchat), so I ought to detect and pop-up a message telling them to switch to a real browser.</li>
                                     <li className="additions-list-item">I don't have an iPhone (the main culprit; Android works), which makes it hard to test.</li>
                                 </ul>
                                 <li>Forecaster</li>
                                     <ul className="additions-list__sub__sub">
                                         <li className="additions-list-item">This is an idea for an additional component. It takes the data that you've filtered and estimates your dollar value expenditures for the next {'{week | month | year}'}.</li>
+                                        <li className="additions-list-item">If I was going to do this, it would definitely be nice to add category to each expense. That way you could use the component to generate messages like, "According to your expenditures over the last 28 days, you will spend $205.87 on food over the next 28 days."</li>
+                                        <li className="additions-list-item">If I wanted to get even crazier, it could add in weighting factors like how much you spent during that same time period the previous year (and disregard if the data set is too sparse).</li>
                                         <li className="additions-list-item">I'd have to figure out exactly what supervised machine learning technique would be best. Maybe something like SVM?</li>
                                     </ul>
                             </ul>
